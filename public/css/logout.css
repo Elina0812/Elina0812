@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    background: linear-gradient(to bottom, #3C4767 60%, #ff6347 100%);
+}
+
+h1 {
+    text-align: center;
+    margin: 20px 20px 0 0;
+}
+
+p {
+    margin: 20px;
+    font-size: 25px;
+    border: #3C4767;
+    line-height: 50px;
+    text-align: center;
+    color: aliceblue;
+}
+
+a {
+    font-size: 15px;
+    text-align: center;
+    color: aliceblue;
+}
+
+
+#container,
+h2 {
+    font-size: 18px;
+    text-align: center;
+    color: aliceblue;
+    margin: 50px;
+    font-weight: 80%;
+    height: 10px;
+
+}
