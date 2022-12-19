@@ -2,11 +2,10 @@
 
 @section('content')
 
-{!! Form::open(['url' => 'post/create']) !!}
-{!! Form::input('text', 'newPost', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
+{!! Form::open(['url' => 'post/index']) !!}
+{!! Form::input('text', 'Post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
 <button type="submit" class="btn btn-success pull-right"><img src="images/post.png"></button>
 {!! Form::close() !!}
-
 
 <table class='table table-hover'>
   <tr>

@@ -23,4 +23,16 @@ class PostsController extends Controller
         // dd($posts);
         return view('posts.index', compact('auth', 'follow_count', 'follower_count', 'posts'));
     }
+
+    public function create(Request $request)
+    {
+        $post = $request->input('Post');
+        DB::table('posts')->insert([
+            'posts' => $post,
+            'user_id' => Auth::id(),
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        return redirect('/top');
+    }
 }
