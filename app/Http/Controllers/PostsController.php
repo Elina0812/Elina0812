@@ -18,7 +18,9 @@ class PostsController extends Controller
         $follower_count = DB::table('follows')
             ->where('follow', Auth::id())
             ->count();
-        // dd($auth);
-        return view('posts.index', compact('auth', 'follow_count', 'follower_count'));
+        $posts = DB::table('posts')->get();
+
+        // dd($posts);
+        return view('posts.index', compact('auth', 'follow_count', 'follower_count', 'posts'));
     }
 }
