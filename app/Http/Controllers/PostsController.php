@@ -35,4 +35,32 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+    public function updateForm($id)
+    {
+        $post = DB::table('post')
+            ->where('id', $id)
+            ->first();
+        return view('posts.update', ['post' => $post]);
+    }
+
+    public function update(Request $request)
+    {
+        $id = $request->input('id');
+        $up_post = $request->input('upPost');
+        DB::table('posts')
+            ->where('id', $id)
+            ->update(
+                ['post' => $up_post]
+            );
+
+        return redirect('/index');
+    }
+
+    public function delete($id)
+    {
+        DB::table('posts')
+            ->where('id', $id)
+            ->delete();
+        return view('posts.delete', ['/index']);
+    }
 }

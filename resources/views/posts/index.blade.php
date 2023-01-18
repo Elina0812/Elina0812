@@ -21,6 +21,8 @@
     <td>
       <p class="modalopen" data-target="modal01"><img src="images/edit.png"></p>
     </td>
+    <td><a class="btn btn-danger" href="/post/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash.png"></a></td>
+    {!! Form::close() !!}
   </tr>
   @endforeach
 </table>
@@ -28,7 +30,8 @@
   <div class="modal-inner">
     <div class="modal-content">
       <p class="inner-text">
-        つぶやいた内容を表示します。
+        {!! Form::open(['url' => '/post/update']) !!}
+        {!! Form::input('text', 'upPost', $post->posts, ['required', 'class' => 'form-control']) !!}
       </p>
       <a class="send-button modalClose"><img src="images/edit.png"></a>
     </div>
