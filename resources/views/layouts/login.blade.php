@@ -30,7 +30,7 @@
             <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p><img src="images/dawn.png">{{ $auth->username }}さん!<span class="material-symbols-outlined">expand_more</span></p>
+                    <p><img src="images/dawn.png">{{ $auth->username }}さん<span class="material-symbols-outlined">expand_more</span></p>
 
                     <div class="menu-container">
                         <ul>
@@ -52,14 +52,14 @@
                     <p>フォロー数</p>
                     <p>{{ $follow_count }}名</p>
                 </div>
-                <p class="btn"><a href="">フォローリスト</a></p>
+                <p class="btn"><a href="/followList">フォローリスト</a></p>
                 <div>
                     <p>フォロワー数</p>
                     <p>{{ $follower_count }}名</p>
                 </div>
-                <p class="btn"><a href="">フォロワーリスト</a></p>
+                <p class="btn"><a href="/followerList">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="">ユーザー検索</a></p>
+            <p class="btn"><a href="/">ユーザー検索</a></p>
         </div>
     </div>
 </body>

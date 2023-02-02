@@ -56,11 +56,11 @@ class PostsController extends Controller
         return redirect('/index');
     }
 
-    public function delete($id)
+    public function destroy($id)
     {
         DB::table('posts')
             ->where('id', $id)
             ->delete();
-        return view('posts.delete', ['/index']);
+        return redirect('/index');
     }
 }
