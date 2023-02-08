@@ -41,3 +41,9 @@ Route::get('/follow-list', 'PostsController@index');
 Route::get('/follower-list', 'PostsController@index');
 
 Route::get('/logout', 'Auth\LoginController@logout');
+
+Route::post('post/index', 'PostsController@create');
+
+Route::get('post/{id}/index', 'PostsController@updateForm');
+
+Route::delete('post/{id}/index', 'PostsController@destroy');
