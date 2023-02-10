@@ -46,4 +46,4 @@ Route::post('post/index', 'PostsController@create');
 
 Route::get('post/{id}/index', 'PostsController@updateForm');
 
-Route::delete('post/{id}/index', 'PostsController@destroy');
+Route::delete('post/{id}/delete', 'PostsController@destroy');

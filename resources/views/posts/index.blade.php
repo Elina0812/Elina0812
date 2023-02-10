@@ -12,6 +12,8 @@
     <th>投稿No</th>
     <th>投稿内容</th>
     <th>投稿日時</th>
+    <th></th>
+    <th></th>
   </tr>
   @foreach ($posts as $post)
   <tr>
@@ -21,8 +23,13 @@
     <td>
       <p class="modalopen" data-target="modal01"><img src="images/edit.png"></p>
     </td>
-    <td><a class="btn btn-danger" href="/post/{{ $post->id }}/delete" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')"><img src="images/trash.png"></a></td>
-    {!! Form::close() !!}
+    <td>
+      <form action="/post/{{ $post->id}}/delete" method="post">
+        @csrf
+        @method('delete')
+        <input type="image" src="images/trash.png" class="btn btn-danger" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+      </form>
+    </td>
   </tr>
   @endforeach
 </table>
