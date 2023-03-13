@@ -18,13 +18,13 @@ class FollowsController extends Controller
     public function followerList()
     {
         $latestPosts = DB::table('posts')
-            ->select('user_id', DB::raw('MAX(created_at) as last_post_created_at'))
-            ->where('is_published', true)
-            ->groupBy('user_id');
+            ->select('user.id', DB::raw('MAX(created_at) as post.created_at'))
+            ->where('follower', Auth::id())
+            ->groupBy('user.id');
 
         $users = DB::table('users')
             ->joinSub($latestPosts, 'latest_posts', function ($join) {
-                $join->on('users.id', '=', 'latest_posts.user_id');
+                $join->on('users.id', '=', 'latest_posts.user.id');
             })->get();
         return view('follows.followerList');
     }
