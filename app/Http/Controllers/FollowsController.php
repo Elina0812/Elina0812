@@ -12,21 +12,50 @@ class FollowsController extends Controller
     //
     public function followList()
     {
+        $auth = Auth::user();
+        $follow_count = DB::table('follows')
+            ->where('follower', Auth::id())
+            ->count();
+        $follower_count = DB::table('follows')
+            ->where('follow', Auth::id())
+            ->count();
 
-        return view('follows.followList');
+        $latestPosts = DB::table('posts')
+            ->join('follows', 'posts.user_id', '=', 'follows.follow')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->where('follow', Auth::id())
+            ->get();
+
+        $users = DB::table('users')
+            ->join('follows', 'users.id', '=', 'follows.follow')
+            ->where('follow', Auth::id())
+            ->get();
+
+        return view('follows.followList', compact('auth', 'follow_count', 'follower_count', 'latestPosts', 'users'));
     }
     public function followerList()
     {
-        $latestPosts = DB::table('posts')
-            ->select('user.id', DB::raw('MAX(created_at) as post.created_at'))
+        $auth = Auth::user();
+        $follow_count = DB::table('follows')
             ->where('follower', Auth::id())
-            ->groupBy('user.id');
+            ->count();
+        $follower_count = DB::table('follows')
+            ->where('follow', Auth::id())
+            ->count();
+
+        $latestPosts = DB::table('posts')
+            ->join('follows', 'posts.user_id', '=', 'follows.follow')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->where('follower', Auth::id())
+            ->get();
 
         $users = DB::table('users')
-            ->joinSub($latestPosts, 'latest_posts', function ($join) {
-                $join->on('users.id', '=', 'latest_posts.user.id');
-            })->get();
-        return view('follows.followerList');
+            ->join('follows', 'users.id', '=', 'follows.follow')
+            ->where('follower', Auth::id())
+            ->get();
+
+
+        return view('follows.followerList', compact('auth', 'follow_count', 'follower_count', 'latestPosts', 'users'));
     }
     public function index()
     {

@@ -30,7 +30,7 @@
             <h1><a href="/top"><img src="images/main_logo.png"></a></h1>
             <div id="">
                 <div id="">
-                    <p><img src="images/dawn.png">{{ $auth->username }}さん<span class="material-symbols-outlined">expand_more</span></p>
+                    <p><img src="images/{{ $auth->images }}">{{ $auth->username }}さん<span class="material-symbols-outlined">expand_more</span></p>
 
                     <div class="menu-container">
                         <ul>
