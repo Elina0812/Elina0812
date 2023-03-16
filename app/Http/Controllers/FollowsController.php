@@ -57,9 +57,33 @@ class FollowsController extends Controller
 
         return view('follows.followerList', compact('auth', 'follow_count', 'follower_count', 'latestPosts', 'users'));
     }
+
     public function index()
     {
         $auth = Auth::follow();
         return view('follows.index', compact('auth'));
+    }
+
+    public function create(Request $request)
+    {
+        $id = $request->id;
+        DB::table('follows')
+            ->insert([
+                'follow' => $id,
+                'follower' => Auth::id(),
+                'created_at' => now(),
+            ]);
+        return back();
+    }
+
+    public function destroy(Request $request)
+    {
+        $id = $request->id;
+        DB::table('follows')
+            ->where([
+                'follow' => $id,
+                'follower' => Auth::id(),
+            ])->delete();
+        return back();
     }
 }

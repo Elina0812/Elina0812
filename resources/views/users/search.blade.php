@@ -6,13 +6,30 @@
 <input type="image" class="btn btn-success pull-right" src="images/post.png">
 {!! Form::close() !!}
 <div>
-  @foreach($users as $user)
-  <div>
-    <img src="/images/{{$user->images}}">
-    {{$user->username}}
-  </div>
-  @endforeach
+  <table class='table table-hover'>
+    @foreach($users as $user)
+    <tr>
+      <th><img src="/images/{{$user->images}}"></th>
+      <th>{{$user->username}}</th>
+      <th>
+        <form action="/follow/create" method="post">
+          @csrf
+          <input type="hidden" value="{{$user->id}}" name="id">
+          <input type="submit" class="btn" value="フォローする">
+        </form>
+      </th>
+      <th>
+        <form action="/follow/delete" method="post">
+          @csrf
+          @method('delete')
+          <input type="hidden" value="{{$user->id}}" name="id">
+          <input type="submit" class="btn" value="フォローをはずす">
+        </form>
+      </th>
+    </tr>
 
+    @endforeach
+  </table>
 </div>
 
 
