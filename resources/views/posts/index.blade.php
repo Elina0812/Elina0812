@@ -24,14 +24,14 @@
       <p class="modalopen" data-target="modal01"><img src="images/edit.png"></p>
     </td>
     <td>
-      <form action="/post/{{ $post->id}}/delete" method="post">
+      <form action="/post/{{ $post->id }}/delete" method="post">
         @csrf
         @method('delete')
         <input type="image" src="images/trash.png" class="btn btn-danger" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
       </form>
     </td>
   </tr>
-  @endforeach
+
 </table>
 <div class="modal-main js-modal" id="modal01">
   <div class="modal-inner">
@@ -39,9 +39,11 @@
       <p class="inner-text">
         {!! Form::open(['url' => '/post/update']) !!}
         {!! Form::input('text', 'upPost', $post->posts, ['required', 'class' => 'form-control']) !!}
+        {!! Form::close() !!}
       </p>
       <a class="send-button modalClose"><img src="images/edit.png"></a>
     </div>
   </div>
 </div>
+@endforeach
 @endsection

@@ -53,7 +53,7 @@ class PostsController extends Controller
                 ['post' => $up_post]
             );
 
-        return redirect('/index');
+        return redirect('/top');
     }
 
     public function destroy($id)

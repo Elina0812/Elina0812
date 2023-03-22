@@ -11,13 +11,7 @@
     <tr>
       <th><img src="/images/{{$user->images}}"></th>
       <th>{{$user->username}}</th>
-      <th>
-        <form action="/follow/create" method="post">
-          @csrf
-          <input type="hidden" value="{{$user->id}}" name="id">
-          <input type="submit" class="btn" value="フォローする">
-        </form>
-      </th>
+      @if($follow_list->contains('follow', $user->id))
       <th>
         <form action="/follow/delete" method="post">
           @csrf
@@ -26,8 +20,17 @@
           <input type="submit" class="btn" value="フォローをはずす">
         </form>
       </th>
-    </tr>
+      @else
+      <th>
+        <form action="/follow/create" method="post">
+          @csrf
+          <input type="hidden" value="{{$user->id}}" name="id">
+          <input type="submit" class="btn" value="フォローする">
+        </form>
 
+      </th>
+    </tr>
+    @endif
     @endforeach
   </table>
 </div>
