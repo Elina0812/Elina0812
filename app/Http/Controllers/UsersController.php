@@ -24,6 +24,7 @@ class UsersController extends Controller
             ->where('id', Auth::id())
             ->first();
         // dd($users);
+
         return view('users.profile', compact('auth', 'follow_count', 'follower_count', 'posts', 'users'));
     }
 
@@ -31,7 +32,38 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        $id = $request->id;
+        $username = $request->inputName;
+        $mail = $request->inputEmail;
+        $bio = $request->inputBio;
+
+        if (request('inputPassword')) {
+            $newpassword = bcrypt($request->inputPassword);
+        } else {
+            $newpassword = DB::table('users')
+                ->where('id', Auth::id())
+                ->value('password');
+        }
+
+        if (request('image')) {
+            $imagename = $request->file('image')->getClientOriginalName();
+            $request->file('image')->storeAs('/public/images', $imagename);
+        } else {
+            $imagename = DB::table('users')
+                ->where('id', Auth::id())
+                ->value('images');
+        }
+
+        DB::table('users')
+            ->where('id', Auth::id())
+            ->update([
+                'username' => $username,
+                'mail' => $mail,
+                'password' => $newpassword,
+                'bio' => $bio,
+                'images' => $imagename,
+            ]);
+
+        return back();
     }
 
     public function search(Request $request)

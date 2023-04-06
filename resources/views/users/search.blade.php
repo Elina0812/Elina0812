@@ -9,14 +9,14 @@
   <table class='table table-hover'>
     @foreach($users as $user)
     <tr>
-      <th><img src="/images/{{$user->images}}"></th>
-      <th>{{$user->username}}</th>
+      <th><img src="/images/{{ $user->images }}"></th>
+      <th>{{ $user->username }}</th>
       @if($follow_list->contains('follow', $user->id))
       <th>
         <form action="/follow/delete" method="post">
           @csrf
           @method('delete')
-          <input type="hidden" value="{{$user->id}}" name="id">
+          <input type="hidden" value="{{ $user->id }}" name="id">
           <input type="submit" class="btn" value="フォローをはずす">
         </form>
       </th>
@@ -24,7 +24,7 @@
       <th>
         <form action="/follow/create" method="post">
           @csrf
-          <input type="hidden" value="{{$user->id}}" name="id">
+          <input type="hidden" value="{{ $user->id }}" name="id">
           <input type="submit" class="btn" value="フォローする">
         </form>
 
