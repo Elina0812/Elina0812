@@ -5,7 +5,7 @@
   <p>FollowList</p>
   <div>
     @foreach ($users as $user)
-    <a href="">
+    <a href="/anotherprofile/{{ $user->id }}">
       <img src="/images/{{ $user->images }}" alt="icon">
     </a>
     @endforeach
@@ -19,7 +19,7 @@
     @foreach ($latestPosts as $post)
     <tr>
       <td>
-        <a href="">
+        <a href="/anotherprofile/{{ $post->id }}">
           <img src="/images/{{ $post->images }}" alt="icon">
         </a>
       </td>

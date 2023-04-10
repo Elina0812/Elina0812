@@ -9,7 +9,10 @@
   <table class='table table-hover'>
     @foreach($users as $user)
     <tr>
-      <th><img src="/images/{{ $user->images }}"></th>
+      <th>
+        <a href="/anotherprofile/{{ $user->id }}">
+          <img src="/images/{{ $user->images }}">
+      </th>
       <th>{{ $user->username }}</th>
       @if($follow_list->contains('follow', $user->id))
       <th>

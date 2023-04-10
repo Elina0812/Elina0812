@@ -66,6 +66,30 @@ class UsersController extends Controller
         return back();
     }
 
+    public function anotherprofile($id)
+    {
+        $auth = Auth::user();
+        $follow_count = DB::table('follows')
+            ->where('follower', Auth::id())
+            ->count();
+        $follower_count = DB::table('follows')
+            ->where('follow', Auth::id())
+            ->count();
+        $posts = DB::table('posts')->get();
+        $user = DB::table('users')
+            ->where('id', $id)
+            ->select('users.username', 'users.bio', 'users.id', 'users.images')
+            ->first();
+        $follow_list = DB::table('follows')
+            ->where('follower', Auth::id())
+            ->get();
+        // dd($users);
+
+        return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
+    }
+
+
+
     public function search(Request $request)
     {
         $auth = Auth::user();

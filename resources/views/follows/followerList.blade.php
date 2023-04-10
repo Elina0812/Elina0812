@@ -5,7 +5,7 @@
   <p>FollowerList</p>
   <div>
     @foreach ($users as $user)
-    <a href="">
+    <a href="/anotherprofile/{{ $user->id }}">
       <img src="/images/{{ $user->images }}" alt="icon">
     </a>
     @endforeach
@@ -16,15 +16,15 @@
       <th>投稿内容</th>
       <th>投稿日時</th>
     </tr>
-    @foreach ($latestPosts as $post)
+    @foreach ($latestPosts as $latestPost)
     <tr>
       <td>
-        <a href="">
+        <a href="/anotherprofile/{{ $post->id }}">
           <img src="/images/{{ $post->images }}" alt="icon">
         </a>
       </td>
-      <td>{{ $post->posts }}</td>
-      <td>{{ $post->created_at }}</td>
+      <td>{{ $latestPost->posts }}</td>
+      <td>{{ $latestPost->created_at }}</td>
     </tr>
     @endforeach
   </table>
