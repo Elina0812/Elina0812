@@ -3,7 +3,7 @@
 @section('content')
 
 <table class='anotherprofile table'>
-  <p><img src="{{ asset('images/'. $user->images) }}">
+  <p><img src="{{ asset('storage/images/'. $user->images) }}">
   </p>
   <label for="name">name</label>
   {{ $user->username }}
@@ -30,6 +30,14 @@
   @endif
 
 </table>
-
-
+<table class='table table-hover'>
+  @foreach($posts as $post)
+  <tr>
+    <th><img src="{{ asset('storage/images/'. $post->images) }}"></th>
+    <th>{{ $post->username }}</th>
+    <th>{{ $post->posts }}</th>
+    <th>{{ $post->created_at}}</th>
+  </tr>
+  @endforeach
+</table>
 @endsection

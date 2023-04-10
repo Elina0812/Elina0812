@@ -75,7 +75,11 @@ class UsersController extends Controller
         $follower_count = DB::table('follows')
             ->where('follow', Auth::id())
             ->count();
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->where('users.id', $id)
+            ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at')
+            ->get();
         $user = DB::table('users')
             ->where('id', $id)
             ->select('users.username', 'users.bio', 'users.id', 'users.images')
@@ -83,7 +87,7 @@ class UsersController extends Controller
         $follow_list = DB::table('follows')
             ->where('follower', Auth::id())
             ->get();
-        // dd($users);
+        // dd($posts);
 
         return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
     }
