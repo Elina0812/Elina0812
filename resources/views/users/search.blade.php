@@ -9,29 +9,29 @@
   <table class='table table-hover'>
     @foreach($users as $user)
     <tr>
-      <th>
+      <td>
         <a href="/anotherprofile/{{ $user->id }}">
-          <img src="/images/{{ $user->images }}">
-      </th>
-      <th>{{ $user->username }}</th>
+          <img class='icon' src="/storage/images/{{ $user->images }}">
+          </th>
+      <td>{{ $user->username }}</td>
       @if($follow_list->contains('follow', $user->id))
-      <th>
+      <td>
         <form action="/follow/delete" method="post">
           @csrf
           @method('delete')
           <input type="hidden" value="{{ $user->id }}" name="id">
           <input type="submit" class="btn" value="フォローをはずす">
         </form>
-      </th>
+      </td>
       @else
-      <th>
+      <td>
         <form action="/follow/create" method="post">
           @csrf
           <input type="hidden" value="{{ $user->id }}" name="id">
           <input type="submit" class="btn" value="フォローする">
         </form>
 
-      </th>
+      </td>
     </tr>
     @endif
     @endforeach

@@ -27,10 +27,10 @@
 <body>
     <header>
         <div id="head">
-            <h1><a href="/top"><img src="{{ asset('images/main_logo.png') }}"></a></h1>
+            <h1><a href="/top"><img class="logo" src="{{ asset('images/main_logo.png') }}"></a></h1>
             <div id="">
-                <div id="">
-                    <p><img src="{{ asset('images/'. $auth->images) }}">{{ $auth->username }}さん<span class="material-symbols-outlined">expand_more</span></p>
+                <div class="icon-menu">
+                    <p>{{ $auth->username }}さん<img class="icon" src="{{ asset('/storage/images/'. $auth->images) }}"><span class="material-symbols-outlined">expand_more</span></p>
 
                     <div class="menu-container">
                         <ul>
@@ -48,18 +48,20 @@
         <div id="side-bar">
             <div id="confirm">
                 <p>{{ $auth->username }}さんの</p>
-                <div>
+                <div class="follow-number">
                     <p>フォロー数</p>
                     <p>{{ $follow_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
+                <div class="follower-number">
                     <p>フォロワー数</p>
                     <p>{{ $follower_count }}名</p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <div id="search-btn">
+                <p class="btn"><a href="/search">ユーザー検索</a></p>
+            </div>
         </div>
     </div>
 </body>

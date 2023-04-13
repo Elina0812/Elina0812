@@ -6,7 +6,7 @@
   <div>
     @foreach ($users as $user)
     <a href="/anotherprofile/{{ $user->id }}">
-      <img src="/images/{{ $user->images }}" alt="icon">
+      <img class="icon" src="/storage/images/{{ $user->images }}" alt="icon">
     </a>
     @endforeach
   </div>
@@ -20,9 +20,10 @@
     <tr>
       <td>
         <a href="/anotherprofile/{{ $post->id }}">
-          <img src="/images/{{ $post->images }}" alt="icon">
+          <img class="icon" src="/storage/images/{{ $post->images }}" alt="icon">
         </a>
       </td>
+      <td>{{ $latestPost->images }}</td>
       <td>{{ $latestPost->posts }}</td>
       <td>{{ $latestPost->created_at }}</td>
     </tr>
