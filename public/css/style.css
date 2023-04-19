@@ -48,7 +48,7 @@ header {
     /*ボタン色*/
     color: #ffffff;
     border-bottom: solid 3px #627295;
-    border-radius: 2px;
+    border-radius: 3px;
     margin: 0 0 0 70px;
     cursor: pointer;
 }
@@ -66,7 +66,7 @@ header {
     /*ボタン色*/
     color: #ffffff;
     border-bottom: solid 3px #627295;
-    border-radius: 2px;
+    border-radius: 3px;
     margin: 0 0 0 50px;
     cursor: pointer;
 }
@@ -249,14 +249,83 @@ h1 {
 
 }
 
-/* follow-list */
-.follow-container p {}
+/* follow-list & follower-list */
 
+.follows-container p {
+    margin: 15px 15px 15px 15px;
+    font-size: 25px;
+    color: #666666;
+}
 
-/* follower-list */
-
+.follow-icon {
+    width: auto;
+    height: auto;
+    padding: 15px 30px 15px 30px;
+    border-bottom: 5px solid #c0c0c0;
+}
 
 /* search */
+
+.search-box {
+    width: auto;
+    height: 80px;
+    border-bottom: 5px solid #c0c0c0;
+}
+
+.form-control {
+    width: 250px;
+    height: 30px;
+    margin: 20px 20px 0 20px;
+}
+
+.btn-search {
+    margin: -40px 0 20px 300px;
+}
+
+.search-table {
+    margin: 20px 20px 20px 100px;
+}
+
+.search-icon {
+    margin: 10px 0 10px 0;
+}
+
+.search-name {
+    margin: 0px 10px 0px 10px;
+}
+
+.follows-btn1 {
+    margin: 0 0 0 200px;
+
+}
+
+.btn-follows1 {
+    background-color: #8b0000;
+    color: #ffffff;
+    padding: 10px 20px 10px 20px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.follows-btn2 {
+    margin: 0 0 0 200px;
+}
+
+.btn-follows2 {
+    background-color: #6495ed;
+    color: #ffffff;
+    padding: 10px 30px 10px 30px;
+    font-size: 12px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* anotherprofile */
 
 
 /* profile */

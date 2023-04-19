@@ -1,9 +1,9 @@
 @extends('layouts.login')
 
 @section('content')
-<div class="follow-container">
+<div class="follows-container">
   <p>FollowList</p>
-  <div>
+  <div class='follow-icon'>
     @foreach ($users as $user)
     <a href="/anotherprofile/{{ $user->id }}">
       <img class="icon" src="/storage/images/{{ $user->images }}" alt="icon">
