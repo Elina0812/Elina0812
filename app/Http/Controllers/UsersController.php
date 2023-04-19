@@ -80,7 +80,7 @@ class UsersController extends Controller
             ->where('users.id', $id)
             ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id')
             ->get();
-        $user = DB::table('users')
+        $users = DB::table('users')
             ->where('id', $id)
             ->select('users.username', 'users.bio', 'users.id', 'users.images')
             ->first();
@@ -89,7 +89,7 @@ class UsersController extends Controller
             ->get();
         // dd($posts);
 
-        return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
+        return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'users', 'follow_list'));
     }
 
 

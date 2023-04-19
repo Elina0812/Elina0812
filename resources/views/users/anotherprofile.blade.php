@@ -2,8 +2,9 @@
 
 @section('content')
 
-<table class='anotherprofile table'>
-  <p><img src="{{ asset('storage/images/'. $user->images) }}">
+<table class='anotherprofile'>
+
+  <p><img src="/storage/images/{{ $user->images }}">
   </p>
   <label for="name">name</label>
   {{ $user->username }}
@@ -33,7 +34,7 @@
 <table class='tweet-show table-hover'>
   @foreach($posts as $post)
   <tr>
-    <th><img class='icon' src="{{ asset('storage/images/'. $post->images) }}"></th>
+    <th><img class='icon' src="/storage/images/{{ $post->images }}"></th>
     <th>{{ $post->username }}</th>
     <th>{{ $post->posts }}</th>
     <th>{{ $post->created_at}}</th>
