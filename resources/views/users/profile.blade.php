@@ -2,22 +2,41 @@
 @section('content')
 
 <table class='profile table'>
+
   <form method="post" action="/profile/update" enctype="multipart/form-data">
     @csrf
-    <img class='icon' src="storage/images/{{ $auth->images }}">
-    <label for="name">UserName</label>
-    <input class="form-control" id="inputName" value="{{ $users->username }}" name="inputName" type="text">
-    <label for="mail">MailAdress</label>
-    <input class="form-control" id="inputEmail" value="{{ $users->mail }}" name="inputEmail" type="email">
-    <label for="password">Password</label>
-    <input class="form-control" id="inputPassword" placeholder="{{ $users->password }}" type="passsword" value="●●●●●●" readonly>
-    <label for="newpassword">New Password</label>
-    <input class="form-control" id="inputPassword" name="inputPassword" type="password">
-    <label for="bio">Bio</label>
-    <textarea name="inputBio" class="form-control" id="inputBio">{{ $users->bio }}</textarea>
-    <label for="icon">Icon Image</label>
-    <input class="custom-file-input" id="fileImage" name="image" type="file">
-    <input class="btn" type="submit" value="更新">
+    <div class='profile-icon'>
+      <img class='icon' src="storage/images/{{ $auth->images }}">
+    </div>
+    <div class='profile'>
+      <div class='profile-name'>
+        <label for="name">UserName</label>
+        <input class="form-control" id="inputName" value="{{ $users->username }}" name="inputName" type="text">
+      </div>
+      <div class='profile-mail'>
+        <label for="mail">MailAdress</label>
+        <input class="form-control" id="inputEmail" value="{{ $users->mail }}" name="inputEmail" type="email">
+      </div>
+      <div class='profile-password'>
+        <label for="password">Password</label>
+        <input class="form-control" id="inputPassword" placeholder="{{ $users->password }}" type="passsword" value="●●●●●●" readonly>
+      </div>
+      <div class='profile-NewPassword'>
+        <label for="NewPassword">New Password</label>
+        <input class="form-control" id="inputPassword" name="inputPassword" type="password">
+      </div>
+      <div class='profile-bio'>
+        <label for="bio">Bio</label>
+        <textarea name="inputBio" class="form-control" id="inputBio">{{ $users->bio }}</textarea>
+      </div>
+      <div class='profile-NewIcon'>
+        <label for="icon">Icon Image</label>
+        <input class="custom-file-input" id="fileImage" name="image" type="file">
+      </div>
+      <div class='profile-btn'>
+        <input class="btn-profile" type="submit" value="更新">
+      </div>
+    </div>
   </form>
 
 </table>

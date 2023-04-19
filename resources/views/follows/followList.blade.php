@@ -16,7 +16,7 @@
     <tr>
       <td>
         <a href="/anotherprofile/{{ $latestPost->id }}">
-          <img class="icon" src="/storage/images/{{ $post->images }}" alt="icon">
+          <img class="icon" src="/storage/images/{{ $latestPost->images }}" alt="icon">
         </a>
       </td>
       <td>{{ $latestPost->username}}</td>

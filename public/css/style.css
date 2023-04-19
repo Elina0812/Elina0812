@@ -31,7 +31,7 @@ header {
 
 #confirm {
     margin: 10px 10px 10px 10px;
-    border-bottom: solid #c0c0c0;
+    border-bottom: solid #666666;
     color: #666666;
     padding: 5px 5px 5px 5px;
 }
@@ -211,7 +211,7 @@ h1 {
     border-bottom: 5px solid #c0c0c0;
 }
 
-.form-control {
+.tweet .form-control {
     display: block;
     height: 20px;
     width: 700px;
@@ -247,4 +247,121 @@ h1 {
 #name {
     margin: 0px 0px 0px -90px;
 
+}
+
+/* follow-list */
+.follow-container p {}
+
+
+/* follower-list */
+
+
+/* search */
+
+
+/* profile */
+
+.profile-icon {
+    margin: 30px 30px 10px 150px;
+
+}
+
+.profile {
+    display: block;
+    margin: -40px 30px 30px 250px;
+    color: #666666;
+    font-size: 20px;
+}
+
+.profile-name {
+    margin-bottom: 30px;
+}
+
+.profile-name .form-control {
+    margin-left: 45px;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+}
+
+.profile-mail {
+    margin-bottom: 30px;
+}
+
+.profile-mail .form-control {
+    margin-left: 44px;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+}
+
+.profile-password {
+    margin-bottom: 30px;
+}
+
+.profile-password .form-control {
+    margin-left: 60px;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+}
+
+.profile-NewPassword {
+    margin-bottom: 30px;
+}
+
+.profile-NewPassword .form-control {
+    margin-left: 15px;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+}
+
+.profile-bio {
+    margin-bottom: 60px;
+}
+
+.profile-bio .form-control {
+    margin-left: 120px;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+}
+
+.profile-NewIcon {
+    margin-bottom: 20px;
+}
+
+
+.profile-NewIcon .custom-file-input {
+    margin-left: 30px;
+    padding: 10px 10px 0 0;
+    font-size: 20px;
+    background-color: #d3d3d3;
+    border-bottom: 5px solid #708090;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.btn-profile {
+    margin: 0 0 0 200px;
+    padding: 5px 25px 5px 25px;
+    color: #ffffff;
+    background-color: #008000;
+    font-size: 15px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }
