@@ -31,7 +31,7 @@ header {
 
 #confirm {
     margin: 10px 10px 10px 10px;
-    border-bottom: solid #666666;
+    border-bottom: solid #c0c0c0;
     color: #666666;
     padding: 5px 5px 5px 5px;
 }
@@ -50,6 +50,7 @@ header {
     border-bottom: solid 3px #627295;
     border-radius: 2px;
     margin: 0 0 0 70px;
+    cursor: pointer;
 }
 
 #confirm a {
@@ -67,6 +68,7 @@ header {
     border-bottom: solid 3px #627295;
     border-radius: 2px;
     margin: 0 0 0 50px;
+    cursor: pointer;
 }
 
 #search-btn a {
@@ -201,4 +203,48 @@ h1 {
     margin: 0 0 0 1000px;
     padding: 5px 5px 5px 5px;
     color: #ffffff;
+}
+
+/* index */
+
+.tweet {
+    border-bottom: 5px solid #c0c0c0;
+}
+
+.form-control {
+    display: block;
+    height: 20px;
+    width: 700px;
+    margin: -90px 0px 0px 85px;
+    padding: 10px 0px 50px 0;
+    text-align: left;
+    border: none;
+    outline: none;
+}
+
+.tweet-icon {
+    margin: 30px 0px 20px 10px;
+}
+
+.btn-tweet {
+    margin: -900px 10px 0 800px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.tweet-show {
+    height: auto;
+    width: 100%;
+    border-bottom: 2px solid #c0c0c0;
+}
+
+#tweet-icon {
+    margin: 30px 0px 30px 30px;
+    padding: 0 0 0 0;
+}
+
+#name {
+    margin: 0px 0px 0px -90px;
+
 }

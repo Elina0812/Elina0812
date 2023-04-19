@@ -4,7 +4,7 @@
 <table class='profile table'>
   <form method="post" action="/profile/update" enctype="multipart/form-data">
     @csrf
-    <img src="storage/images/{{ $auth->images }}">
+    <img class='icon' src="storage/images/{{ $auth->images }}">
     <label for="name">UserName</label>
     <input class="form-control" id="inputName" value="{{ $users->username }}" name="inputName" type="text">
     <label for="mail">MailAdress</label>

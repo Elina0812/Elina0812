@@ -30,10 +30,10 @@
   @endif
 
 </table>
-<table class='table table-hover'>
+<table class='tweet-show table-hover'>
   @foreach($posts as $post)
   <tr>
-    <th><img src="{{ asset('storage/images/'. $post->images) }}"></th>
+    <th><img class='icon' src="{{ asset('storage/images/'. $post->images) }}"></th>
     <th>{{ $post->username }}</th>
     <th>{{ $post->posts }}</th>
     <th>{{ $post->created_at}}</th>

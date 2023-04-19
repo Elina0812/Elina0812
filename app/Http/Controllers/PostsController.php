@@ -9,7 +9,7 @@ use DB;
 class PostsController extends Controller
 {
     //
-    public function index()
+    public function index($id)
     {
         $auth = Auth::user();
         $follow_count = DB::table('follows')
@@ -18,7 +18,11 @@ class PostsController extends Controller
         $follower_count = DB::table('follows')
             ->where('follow', Auth::id())
             ->count();
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->where('users.id', $id)
+            ->select('users.id', 'users.images', 'users.username', 'posts.posts', 'posts.created_at')
+            ->get();
 
         // dd($posts);
         return view('posts.index', compact('auth', 'follow_count', 'follower_count', 'posts'));

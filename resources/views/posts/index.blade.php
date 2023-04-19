@@ -2,24 +2,36 @@
 
 @section('content')
 
-{!! Form::open(['url' => 'post/index']) !!}
-{!! Form::input('text', 'Post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
-<button type="submit" class="btn btn-success pull-right"><img src="images/post.png"></button>
-{!! Form::close() !!}
+<div class="tweet">
+  <div class='tweet-icon'>
+    <img class="icon" src="{{ asset('/storage/images/'. $auth->images) }}">
+  </div>
+  {!! Form::open(['url' => 'post/index']) !!}
+  {!! Form::input('text', 'Post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
+  <button type="submit" class="btn-tweet"><img src="images/post.png"></button>
+  {!! Form::close() !!}
+</div>
 
-<table class='table table-hover'>
+
+@foreach ($posts as $post)
+<table class='tweet-show table-hover'>
   <tr>
-    <th>投稿No</th>
-    <th>投稿内容</th>
-    <th>投稿日時</th>
-    <th></th>
-    <th></th>
-  </tr>
-  @foreach ($posts as $post)
-  <tr>
-    <td>{{ $post->id }}</td>
-    <td>{{ $post->posts }}</td>
-    <td>{{ $post->created_at }}</td>
+    <td>
+      <div id='tweet-icon'>
+        <img class="icon" src="{{ asset('/storage/images/'. $post->images) }}">
+      </div>
+    </td>
+    <td>
+      <div id='name'>
+        {{ $post->username }}
+      </div>
+    </td>
+    <td>
+      <div id='created_at'> {{ $post->created_at }} </div>
+    </td>
+    <td>
+      <div id='posts'> {{ $post->posts }} </div>
+    </td>
     <td>
       <p class="modalopen" data-target="modal01"><img src="images/edit.png"></p>
     </td>

@@ -10,7 +10,7 @@ use DB;
 class UsersController extends Controller
 {
     //
-    public function profile()
+    public function profile($id)
     {
         $auth = Auth::user();
         $follow_count = DB::table('follows')
@@ -19,7 +19,11 @@ class UsersController extends Controller
         $follower_count = DB::table('follows')
             ->where('follow', Auth::id())
             ->count();
-        $posts = DB::table('posts')->get();
+        $posts = DB::table('posts')
+            ->join('users', 'posts.user_id', '=', 'users.id')
+            ->where('users.id', $id)
+            ->select('users.id', 'users.images', 'users.username', 'posts.posts', 'posts.created_at')
+            ->get();
         $users = DB::table('users')
             ->where('id', Auth::id())
             ->first();
@@ -78,7 +82,7 @@ class UsersController extends Controller
         $posts = DB::table('posts')
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->where('users.id', $id)
-            ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at')
+            ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id')
             ->get();
         $user = DB::table('users')
             ->where('id', $id)

@@ -11,19 +11,15 @@
     @endforeach
   </div>
   <table class='table table-hover'>
-    <tr>
-      <th>アイコン</th>
-      <th>投稿内容</th>
-      <th>投稿日時</th>
-    </tr>
+
     @foreach ($latestPosts as $latestPost)
     <tr>
       <td>
-        <a href="/anotherprofile/{{ $post->id }}">
-          <img class="icon" src="/storage/images/{{ $post->images }}" alt="icon">
+        <a href="/anotherprofile/{{ $latestPost->id }}">
+          <img class="icon" src="/storage/images/{{ $latestPost->images }}" alt="icon">
         </a>
       </td>
-      <td>{{ $latestPost->images }}</td>
+      <td>{{ $latestPost->username }}</td>
       <td>{{ $latestPost->posts }}</td>
       <td>{{ $latestPost->created_at }}</td>
     </tr>

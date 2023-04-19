@@ -6,25 +6,22 @@
   <div>
     @foreach ($users as $user)
     <a href="/anotherprofile/{{ $user->id }}">
-      <img src="/images/{{ $user->images }}" alt="icon">
+      <img class="icon" src="/storage/images/{{ $user->images }}" alt="icon">
     </a>
     @endforeach
   </div>
-  <table class='table table-hover'>
-    <tr>
-      <th>アイコン</th>
-      <th>投稿内容</th>
-      <th>投稿日時</th>
-    </tr>
-    @foreach ($latestPosts as $post)
+  <table class='tweet-show table-hover'>
+
+    @foreach ($latestPosts as $latestPost)
     <tr>
       <td>
-        <a href="/anotherprofile/{{ $post->id }}">
-          <img src="/images/{{ $post->images }}" alt="icon">
+        <a href="/anotherprofile/{{ $latestPost->id }}">
+          <img class="icon" src="/storage/images/{{ $post->images }}" alt="icon">
         </a>
       </td>
-      <td>{{ $post->posts }}</td>
-      <td>{{ $post->created_at }}</td>
+      <td>{{ $latestPost->username}}</td>
+      <td>{{ $latestPost->posts }}</td>
+      <td>{{ $latestPost->created_at }}</td>
     </tr>
     @endforeach
   </table>
