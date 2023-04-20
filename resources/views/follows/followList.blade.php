@@ -10,9 +10,10 @@
     </a>
     @endforeach
   </div>
-  <table class='tweet-show table-hover'>
 
-    @foreach ($latestPosts as $latestPost)
+
+  @foreach ($latestPosts as $latestPost)
+  <table class='tweet-show table-hover'>
     <tr>
       <td>
         <a href="/anotherprofile/{{ $latestPost->id }}">
@@ -20,8 +21,8 @@
         </a>
       </td>
       <td>{{ $latestPost->username}}</td>
-      <td>{{ $latestPost->posts }}</td>
       <td>{{ $latestPost->created_at }}</td>
+      <td>{{ $latestPost->posts }}</td>
     </tr>
     @endforeach
   </table>

@@ -22,8 +22,8 @@
       </a>
     </td>
     <td>{{ $latestPost->username }}</td>
-    <td>{{ $latestPost->posts }}</td>
     <td>{{ $latestPost->created_at }}</td>
+    <td>{{ $latestPost->posts }}</td>
   </tr>
   @endforeach
 </table>

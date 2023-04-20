@@ -78,18 +78,20 @@ class UsersController extends Controller
         $posts = DB::table('posts')
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->where('users.id', $id)
-            ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id')
+            ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id', 'users.bio')
             ->get();
-        $users = DB::table('users')
+        // dd($posts);
+        $user = DB::table('users')
             ->where('id', $id)
             ->select('users.username', 'users.bio', 'users.id', 'users.images')
             ->first();
+        // dd($posts);
         $follow_list = DB::table('follows')
             ->where('follower', Auth::id())
             ->get();
         // dd($posts);
 
-        return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'users', 'follow_list'));
+        return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
     }
 
 

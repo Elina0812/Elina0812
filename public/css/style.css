@@ -294,10 +294,11 @@ h1 {
     margin: 0px 10px 0px 10px;
 }
 
-.follows-btn1 {
+.search-follows {
     margin: 0 0 0 200px;
-
 }
+
+
 
 .btn-follows1 {
     background-color: #8b0000;
@@ -310,9 +311,6 @@ h1 {
     cursor: pointer;
 }
 
-.follows-btn2 {
-    margin: 0 0 0 200px;
-}
 
 .btn-follows2 {
     background-color: #6495ed;
@@ -327,6 +325,28 @@ h1 {
 
 /* anotherprofile */
 
+.anotherprofile {
+    display: block;
+    height: auto;
+    width: 100%;
+    border-bottom: 2px solid #c0c0c0;
+}
+
+.anotherprofile-icon {
+    margin: 20px 20px 20px 130px;
+}
+
+.another-name {
+    margin: -50px 20px 20px 200px;
+}
+
+.another-bio {
+    margin: 0px 40px 40px 200px;
+}
+
+.another-follows {
+    margin: -30px 20px 20px 800px;
+}
 
 /* profile */
 
