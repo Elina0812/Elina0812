@@ -31,7 +31,7 @@
 
       <div class='posts'> {{ $post->posts }} </div>
 
-
+      @if(Auth::id() === '$post->user_id')
       <div class="modalopen" data-target="modal01"><img src="images/edit.png" class='btn-update'></div>
 
 
@@ -42,6 +42,7 @@
       </form>
 
     </td>
+    @endif
   </tr>
 
 </table>
