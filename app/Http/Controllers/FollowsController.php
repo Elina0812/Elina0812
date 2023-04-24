@@ -29,7 +29,7 @@ class FollowsController extends Controller
 
         $users = DB::table('users')
             ->join('follows', 'users.id', '=', 'follows.follow')
-            ->where('follow', Auth::id())
+            ->where('follower', Auth::id())
             ->get();
 
         return view('follows.followList', compact('auth', 'follow_count', 'follower_count', 'latestPosts', 'users'));
@@ -47,13 +47,13 @@ class FollowsController extends Controller
         $latestPosts = DB::table('posts')
             ->join('follows', 'posts.user_id', '=', 'follows.follow')
             ->join('users', 'posts.user_id', '=', 'users.id')
-            ->where('follower', Auth::id())
+            ->where('follow', Auth::id())
             ->select('users.id', 'users.images', 'users.username', 'posts.posts', 'posts.created_at as created_at')
             ->get();
 
         $users = DB::table('users')
             ->join('follows', 'users.id', '=', 'follows.follow')
-            ->where('follower', Auth::id())
+            ->where('follow', Auth::id())
             ->get();
 
 

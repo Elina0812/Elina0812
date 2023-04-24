@@ -233,19 +233,37 @@ h1 {
     cursor: pointer;
 }
 
+/*  */
 .tweet-show {
     height: auto;
     width: 100%;
+    padding: 20px;
     border-bottom: 2px solid #c0c0c0;
 }
 
-#tweet-icon {
+.tweet-icon {
     margin: 30px 0px 30px 30px;
     padding: 0 0 0 0;
 }
 
-#name {
-    margin: 0px 0px 0px -90px;
+.name {
+    margin: 20px 0 20px 0;
+}
+
+.created_at {
+    margin: 0 0 0 600px;
+}
+
+.posts {
+    margin: 0px 50px 0px -60px;
+}
+
+.btn-update {
+    margin: 0px 0 -50px 650px;
+}
+
+.btn-danger {
+    margin: 0 0 10px 700px;
 
 }
 

@@ -12,18 +12,31 @@
     @endforeach
   </div>
 </div>
-<table class='table table-hover'>
 
-  @foreach ($latestPosts as $latestPost)
+
+@foreach ($latestPosts as $latestPost)
+<table class='tweet-show table-hover'>
   <tr>
     <td>
-      <a href="/anotherprofile/{{ $latestPost->id }}">
-        <img class="icon" src="/storage/images/{{ $latestPost->images }}" alt="icon">
+      <div class='tweet-icon'>
+        <a href="/anotherprofile/{{ $latestPost->id }}">
+          <img class="icon" src="/storage/images/{{ $latestPost->images }}" alt="icon">
+      </div>
       </a>
     </td>
-    <td>{{ $latestPost->username }}</td>
-    <td>{{ $latestPost->created_at }}</td>
-    <td>{{ $latestPost->posts }}</td>
+    <td>
+      <div class='name'>
+        {{ $latestPost->username }}
+      </div>
+    </td>
+    <td>
+      <div class='created_at'>
+        {{ $latestPost->created_at }}
+      </div>
+      <div class='posts'>
+        {{ $latestPost->posts }}
+      </div>
+    </td>
   </tr>
   @endforeach
 </table>

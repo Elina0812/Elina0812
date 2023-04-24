@@ -17,30 +17,30 @@
 <table class='tweet-show table-hover'>
   <tr>
     <td>
-      <div id='tweet-icon'>
+      <div class='tweet-icon'>
         <img class="icon" src="{{ asset('/storage/images/'. $post->images) }}">
       </div>
     </td>
     <td>
-      <div id='name'>
+      <div class='name'>
         {{ $post->username }}
       </div>
     </td>
     <td>
-      <div id='created_at'> {{ $post->created_at }} </div>
-    </td>
-    <td>
-      <div id='posts'> {{ $post->posts }} </div>
-    </td>
-    <td>
-      <p class="modalopen" data-target="modal01"><img src="images/edit.png"></p>
-    </td>
-    <td>
+      <div class='created_at'> {{ $post->created_at }} </div>
+
+      <div class='posts'> {{ $post->posts }} </div>
+
+
+      <div class="modalopen" data-target="modal01"><img src="images/edit.png" class='btn-update'></div>
+
+
       <form action="/post/{{ $post->id }}/delete" method="post">
         @csrf
         @method('delete')
         <input type="image" src="images/trash.png" class="btn btn-danger" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
       </form>
+
     </td>
   </tr>
 

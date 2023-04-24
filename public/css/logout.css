@@ -29,13 +29,113 @@ a {
     color: aliceblue;
 }
 
-
-#container,
+/* login */
+.container,
 h2 {
+    display: block;
     font-size: 18px;
     text-align: center;
     color: aliceblue;
-    margin: 70px;
+    margin: 50px 70px 50px 70px;
     font-weight: 80%;
     height: 10px;
+}
+
+.login-box {
+    margin: 0 350px 0 350px;
+    padding-top: 1px;
+    background-color: rgba(25,
+            25,
+            112, 0.5);
+    border-radius: 3px;
+}
+
+.login-mail {
+    margin: 10px 10px 10px -60px;
+}
+
+.login-password {
+    margin: 10px 10px 10px -70px;
+}
+
+.login-text {
+    margin: 10px;
+
+}
+
+.btn-login {
+    margin: 0 0 0 80px;
+    padding: 6px 20px 6px 20px;
+    font-size: 13px;
+    color: #c0c0c0;
+    background-color: #4169e1;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+/* register */
+
+.register {
+    margin: -50px 300px -50px 300px;
+    padding-top: 3px;
+    background-color: rgba(25,
+            25,
+            112, 0.5);
+    border-radius: 3px;
+}
+
+.register-username {
+    margin: 10px;
+}
+
+.register-mail {
+    margin: 10px;
+}
+
+.register-password {
+    margin: 10px 10px 10px 20px;
+}
+
+.register-text {
+    margin: 10px;
+}
+
+.btn-register {
+    margin: 0 0 0 80px;
+    padding: 6px 20px 6px 20px;
+    font-size: 13px;
+    color: #c0c0c0;
+    background-color: #4169e1;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.clear {
+    margin: 0 300px 0 300px;
+    background-color: rgba(25,
+            25,
+            112, 0.5);
+    border-radius: 3px;
+}
+
+.clear p {
+    margin: -10px;
+    padding: -50px;
+    font-size: 20px;
+
+}
+
+.btn-added {
+    padding: 6px 20px 6px 20px;
+    font-size: 13px;
+    color: #c0c0c0;
+    background-color: #4169e1;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    cursor: pointer;
 }

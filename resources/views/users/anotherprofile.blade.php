@@ -4,7 +4,7 @@
 
 <table class='anotherprofile '>
   <div class='anotherprofile-icon'>
-    <p><img class='icon' src="{{ asset('/storage/images/'. $user->images) }}">
+    <p><img class='icon' src="/storage/images/{{ $user->images }}">
     </p>
   </div>
   <div class='another-name'><label for="name">name</label>
@@ -48,10 +48,24 @@
 @foreach($posts as $post)
 <table class='tweet-show table-hover'>
   <tr>
-    <th><img class='icon' src="{{ asset('/storage/images/'. $post->images) }}"></th>
-    <th>{{ $post->username }}</th>
-    <th>{{ $post->created_at}}</th>
-    <th>{{ $post->posts }}</th>
+    <td>
+      <div class='tweet-icon'>
+        <img class='icon' src="/storage/images/{{ $post->images }}">
+      </div>
+    </td>
+    <td>
+      <div class='name'>
+        {{ $post->username }}
+      </div>
+    </td>
+    <td>
+      <div class='created_at'>
+        {{ $post->created_at}}
+      </div>
+      <div class='posts'>
+        {{ $post->posts }}
+      </div>
+    </td>
 
   </tr>
   @endforeach

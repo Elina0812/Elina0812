@@ -83,7 +83,6 @@ class UsersController extends Controller
         // dd($posts);
         $user = DB::table('users')
             ->where('id', $id)
-            ->select('users.username', 'users.bio', 'users.id', 'users.images')
             ->first();
         // dd($posts);
         $follow_list = DB::table('follows')
