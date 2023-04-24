@@ -79,6 +79,7 @@ class UsersController extends Controller
             ->join('users', 'posts.user_id', '=', 'users.id')
             ->where('users.id', $id)
             ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id', 'users.bio')
+            ->orderBy('posts.created_at', 'desc')
             ->get();
         // dd($posts);
         $user = DB::table('users')

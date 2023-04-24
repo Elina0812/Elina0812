@@ -8,7 +8,6 @@
     <a href="/anotherprofile/{{ $user->id }}">
       <img class="icon" src="/storage/images/{{ $user->images }}" alt="icon">
     </a>
-
     @endforeach
   </div>
 </div>

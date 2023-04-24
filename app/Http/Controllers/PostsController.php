@@ -20,7 +20,8 @@ class PostsController extends Controller
             ->count();
         $posts = DB::table('posts')
             ->join('users', 'posts.user_id', '=', 'users.id')
-            ->select('users.id', 'users.username', 'users.images', 'posts.posts', 'posts.created_at')
+            ->select('users.id', 'users.username', 'users.images', 'posts.posts', 'posts.created_at as created_at')
+            ->orderBy('posts.created_at', 'desc')
             ->get();
 
         // dd($posts);
