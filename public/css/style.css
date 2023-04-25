@@ -259,12 +259,20 @@ h1 {
 }
 
 .btn-update {
-    margin: 0px 0 -50px 650px;
+    margin: 0px 0 -50px 700px;
+    padding: auto;
 }
 
 .btn-danger {
-    margin: 0 0 10px 700px;
+    margin: 0px 0px 10px 600px;
+    padding: auto;
 
+}
+
+/* model */
+
+.send-button {
+    margin: 10px 10px 10px 300px;
 }
 
 /* follow-list & follower-list */

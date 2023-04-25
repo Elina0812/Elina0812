@@ -31,18 +31,18 @@
 
       <div class='posts'> {{ $post->posts }} </div>
 
-      @if(Auth::id() === '$post->user_id')
-      <div class="modalopen" data-target="modal01"><img src="images/edit.png" class='btn-update'></div>
+      @if(Auth::id() === $post->id)
 
+      <div class="modalopen" data-target="modal01"><img src="images/edit.png" class='btn-update'></div>
 
       <form action="/post/{{ $post->id }}/delete" method="post">
         @csrf
         @method('delete')
         <input type="image" src="images/trash.png" class="btn btn-danger" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
       </form>
-
+      @endif
     </td>
-    @endif
+
   </tr>
 
 </table>
@@ -58,5 +58,6 @@
     </div>
   </div>
 </div>
+
 @endforeach
 @endsection
