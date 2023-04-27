@@ -10,6 +10,9 @@
   {!! Form::input('text', 'Post', null, ['required', 'class' => 'form-control', 'placeholder' => '投稿内容']) !!}
   <button type="submit" class="btn-tweet"><img src="images/post.png"></button>
   {!! Form::close() !!}
+  @if($errors->has('Post'))
+  {{ $errors->first('Post') }}
+  @endif
 </div>
 
 

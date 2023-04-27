@@ -11,11 +11,17 @@
     <div class='profile'>
       <div class='profile-name'>
         <label for="name">UserName</label>
-        <input class="form-control" id="inputName" value="{{ $users->username }}" name="inputName" type="text">
+        <input class="form-control" id="username" value="{{ $users->username }}" name="username" type="text">
+        @if($errors->has('username'))
+        {{ $errors->first('username') }}
+        @endif
       </div>
       <div class='profile-mail'>
         <label for="mail">MailAdress</label>
-        <input class="form-control" id="inputEmail" value="{{ $users->mail }}" name="inputEmail" type="email">
+        <input class="form-control" id="mail" value="{{ $users->mail }}" name="mail" type="email">
+        @if($errors->has('mail'))
+        {{ $errors->first('mail') }}
+        @endif
       </div>
       <div class='profile-password'>
         <label for="password">Password</label>
@@ -24,6 +30,9 @@
       <div class='profile-NewPassword'>
         <label for="NewPassword">New Password</label>
         <input class="form-control" id="inputPassword" name="inputPassword" type="password">
+        @if($errors->has('inputPassword'))
+        {{ $errors->first('inputPassword') }}
+        @endif
       </div>
       <div class='profile-bio'>
         <label for="bio">Bio</label>

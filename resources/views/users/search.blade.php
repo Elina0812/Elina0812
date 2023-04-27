@@ -8,6 +8,9 @@
 
   <input type="image" class="btn-search" src="images/post.png">
   {!! Form::close() !!}
+  @if(isset($keyword))
+  検索ワード:{{ $keyword }}
+  @endif
 </div>
 <div>
   <table class='search-table table-hover'>

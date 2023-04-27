@@ -32,8 +32,29 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
-        $username = $request->inputName;
-        $mail = $request->inputEmail;
+        $request->validate(
+            [
+                'username' => 'required|string|min:4|max:12',
+                'mail' => 'required|string|email|min:4|max:255|unique:users',
+                'password' => 'required|string|min:4|max:12'
+            ],
+            [
+                'username.required' => '名前は必須項目です',
+                'username.min' => '4文字以上で入力してください',
+                'username.max' => '50文字以下で入力してください',
+                'mail.required' => 'メールは必須項目です',
+                'mail.email' => 'Eメールを入力してください',
+                'mail.min' => '４文字以上で入力してください',
+                'mail.max' => '225文字以内で入力してください',
+                'mail.unique' => '登録済みのメールアドレスは使用出来ません',
+                'inputPassword.required' => 'パスワードを入力してください',
+                'inputPassword.min' => '４文字以上で入力してください',
+                'inputPassword.max' => '１２文字以内で入力してください',
+
+            ]
+        );
+        $username = $request->username;
+        $mail = $request->mail;
         $bio = $request->inputBio;
 
         if (request('inputPassword')) {
@@ -109,9 +130,12 @@ class UsersController extends Controller
         $follow_list = DB::table('follows')
             ->where('follower', Auth::id())
             ->get();
+
+        $keyword = $request->search;
         // dd($follow_list);
+
         if (request('search')) {
-            $keyword = $request->search;
+
             $users = DB::table('users')
                 ->where('username', 'like', "%" . $keyword . "%")
                 ->where('id', '<>', Auth::id())
@@ -126,7 +150,8 @@ class UsersController extends Controller
             'auth',
             'follow_count',
             'follower_count',
-            'follow_list'
+            'follow_list',
+            'keyword'
         ));
     }
 }

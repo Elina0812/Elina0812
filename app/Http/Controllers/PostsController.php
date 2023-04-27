@@ -30,6 +30,13 @@ class PostsController extends Controller
 
     public function create(Request $request)
     {
+        $request->validate([
+            'Post' => 'required|string|max:1150'
+        ], [
+            'Post.required' => '投稿が入力されていません',
+            'Post.max' => '1150文字以内で入力してください'
+
+        ]);
         $post = $request->input('Post');
         DB::table('posts')->insert([
             'posts' => $post,
@@ -39,6 +46,7 @@ class PostsController extends Controller
         ]);
         return redirect('/top');
     }
+
     public function updateForm($id)
     {
         $post = DB::table('post')
