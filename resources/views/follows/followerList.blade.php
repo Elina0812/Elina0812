@@ -11,8 +11,6 @@
     @endforeach
   </div>
 </div>
-
-
 @foreach ($latestPosts as $latestPost)
 <table class='tweet-show table-hover'>
   <tr>

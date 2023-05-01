@@ -49,13 +49,13 @@
             <div id="confirm">
                 <p>{{ $auth->username }}さんの</p>
                 <div class="follow-number">
-                    <p>フォロー数</p>
-                    <p>{{ $follow_count }}名</p>
+                    <p>フォロー数 {{ $follow_count }}名
+                    </p>
                 </div>
                 <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 <div class="follower-number">
-                    <p>フォロワー数</p>
-                    <p>{{ $follower_count }}名</p>
+                    <p>フォロワー数 {{ $follower_count }}名
+                    </p>
                 </div>
                 <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
             </div>

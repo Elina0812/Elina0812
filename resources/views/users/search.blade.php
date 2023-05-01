@@ -5,7 +5,6 @@
   <div class='search'>
     {!! Form::open(['url' => '/search']) !!}
     {!! Form::input('text', 'search', null, ['required', 'class' => 'form-control', 'placeholder' => 'ユーザー検索']) !!}</div>
-
   <input type="image" class="btn-search" src="images/post.png">
   {!! Form::close() !!}
   @if(isset($keyword))
@@ -25,7 +24,6 @@
       <td>
         <div class='search-name'>{{ $user->username }}</div>
       </td>
-
       @if($follow_list->contains('follow', $user->id))
       <td>
         <div class='search-follows btn'>
@@ -51,7 +49,6 @@
           </div>
         </div>
       </td>
-
     </tr>
     @endif
     @endforeach

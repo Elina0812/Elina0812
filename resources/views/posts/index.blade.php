@@ -14,8 +14,6 @@
   {{ $errors->first('Post') }}
   @endif
 </div>
-
-
 @foreach ($posts as $post)
 <table class='tweet-show table-hover'>
   <tr>
@@ -39,7 +37,6 @@
       <div class="modalopen" data-target="{{
          $post->id
       }}"><img src="images/edit.png" class='btn-update'></div>
-
       <form action="/post/{{ $post->id }}/delete" method="post">
         @csrf
         @method('delete')
@@ -47,26 +44,20 @@
       </form>
       @endif
     </td>
-
   </tr>
-
 </table>
 <div class="modal-main js-modal" id="{{
          $post->id
-      }}">{{
-         $post->id
-      }}
+      }}">{{ $post->id }}
   <div class="modal-inner">
     <div class="modal-content">
       <p class="inner-text">
         {!! Form::open(['url' => '/post/update']) !!}
         {!! Form::input('text', 'upPost', $post->posts, ['required', 'class' => 'form-control']) !!}
         {!! Form::hidden('id', $post->id) !!}
-        <button type="submit" class="btn-tweet"><img src="images/edit.png"></button>
+        <button type="submit" class="btn-modal"><img src="images/edit.png"></button>
         {!! Form::close() !!}
       </p>
-
-
     </div>
   </div>
 </div>

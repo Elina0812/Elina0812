@@ -2,7 +2,6 @@
 @section('content')
 
 <table class='profile table'>
-
   <form method="post" action="/profile/update" enctype="multipart/form-data">
     @csrf
     <div class='profile-icon'>
@@ -47,8 +46,6 @@
       </div>
     </div>
   </form>
-
 </table>
-
 
 @endsection

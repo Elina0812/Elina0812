@@ -29,6 +29,19 @@ header {
     font-size: 17px;
 }
 
+.follow-number p {
+    margin: 10px;
+}
+
+.follower-number p {
+    margin: 10px;
+}
+
+.follower-number a {
+    margin: 0 0 0 -50px;
+    color: #666666;
+}
+
 #confirm {
     margin: 10px 10px 10px 10px;
     border-bottom: solid #666666;
@@ -151,6 +164,12 @@ header {
     height: 200px;
     background-color: #fff;
 
+}
+
+.btn-modal {
+    margin: 10px;
+    border: none;
+    outline: none;
 }
 
 .send-button img {

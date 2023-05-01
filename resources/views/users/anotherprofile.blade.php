@@ -39,12 +39,9 @@
       </div>
     </div>
   </td>
-
   </tr>
   @endif
-
 </table>
-
 @foreach($posts as $post)
 <table class='tweet-show table-hover'>
   <tr>
@@ -66,7 +63,6 @@
         {{ $post->posts }}
       </div>
     </td>
-
   </tr>
   @endforeach
 </table>

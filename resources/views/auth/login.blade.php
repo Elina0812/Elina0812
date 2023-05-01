@@ -10,7 +10,6 @@
 
 <div class='login-box'>
   <h2>DAWNSNSへようこそ</h2>
-
   <div class='login-mail'>
     {{ Form::label('MailAddress') }}
   </div>
@@ -30,7 +29,6 @@
     <p><a href="/register">新規ユーザーの方はこちら</a></p>
   </div>
 </div>
-
 {!! Form::close() !!}
 
 @endsection

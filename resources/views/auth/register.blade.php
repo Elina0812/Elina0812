@@ -35,7 +35,6 @@
   @if($errors->has('password'))
   {{ $errors->first('password') }}
   @endif
-
   <div class='register-password'>
     {{ Form::label('Password confirm') }}
   </div>
@@ -45,14 +44,10 @@
   @if($errors->has('password-confirm'))
   {{ $errors->first('password-confirm') }}
   @endif
-
   <div class='register-btn'>
     {{ Form::submit('登録', ['class' => 'btn-register']) }}
   </div>
-
-
   <p><a href="/login">ログイン画面へ戻る</a></p>
-
   {!! Form::close() !!}
 </div>
 
