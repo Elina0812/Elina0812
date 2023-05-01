@@ -8,7 +8,7 @@ use DB;
 
 class PostsController extends Controller
 {
-    //
+
     public function index()
     {
         $auth = Auth::user();
@@ -20,11 +20,9 @@ class PostsController extends Controller
             ->count();
         $posts = DB::table('posts')
             ->join('users', 'posts.user_id', '=', 'users.id')
-            ->select('users.id', 'users.username', 'users.images', 'posts.posts', 'posts.created_at as created_at')
+            ->select('posts.id', 'users.username', 'users.images', 'posts.posts', 'posts.created_at as created_at', 'posts.user_id')
             ->orderBy('posts.created_at', 'desc')
             ->get();
-
-        // dd($posts);
         return view('posts.index', compact('auth', 'follow_count', 'follower_count', 'posts'));
     }
 
@@ -35,7 +33,6 @@ class PostsController extends Controller
         ], [
             'Post.required' => '投稿が入力されていません',
             'Post.max' => '1150文字以内で入力してください'
-
         ]);
         $post = $request->input('Post');
         DB::table('posts')->insert([
@@ -47,13 +44,7 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-    public function updateForm($id)
-    {
-        $post = DB::table('post')
-            ->where('id', $id)
-            ->first();
-        return view('posts.update', ['post' => $post]);
-    }
+
 
     public function update(Request $request)
     {
@@ -62,9 +53,8 @@ class PostsController extends Controller
         DB::table('posts')
             ->where('id', $id)
             ->update(
-                ['post' => $up_post]
+                ['posts' => $up_post]
             );
-
         return redirect('/top');
     }
 

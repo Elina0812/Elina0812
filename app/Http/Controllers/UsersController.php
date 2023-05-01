@@ -9,7 +9,6 @@ use DB;
 
 class UsersController extends Controller
 {
-    //
     public function profile()
     {
         $auth = Auth::user();
@@ -23,8 +22,6 @@ class UsersController extends Controller
         $users = DB::table('users')
             ->where('id', Auth::id())
             ->first();
-        // dd($users);
-
         return view('users.profile', compact('auth', 'follow_count', 'follower_count', 'posts', 'users'));
     }
 
@@ -50,7 +47,6 @@ class UsersController extends Controller
                 'inputPassword.required' => 'パスワードを入力してください',
                 'inputPassword.min' => '４文字以上で入力してください',
                 'inputPassword.max' => '１２文字以内で入力してください',
-
             ]
         );
         $username = $request->username;
@@ -73,7 +69,6 @@ class UsersController extends Controller
                 ->where('id', Auth::id())
                 ->value('images');
         }
-
         DB::table('users')
             ->where('id', Auth::id())
             ->update([
@@ -83,7 +78,6 @@ class UsersController extends Controller
                 'bio' => $bio,
                 'images' => $imagename,
             ]);
-
         return back();
     }
 
@@ -102,16 +96,12 @@ class UsersController extends Controller
             ->select('users.username', 'users.images', 'posts.posts', 'posts.created_at', 'users.id', 'users.bio')
             ->orderBy('posts.created_at', 'desc')
             ->get();
-        // dd($posts);
         $user = DB::table('users')
             ->where('id', $id)
             ->first();
-        // dd($posts);
         $follow_list = DB::table('follows')
             ->where('follower', Auth::id())
             ->get();
-        // dd($posts);
-
         return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
     }
 

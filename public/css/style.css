@@ -45,7 +45,6 @@ header {
     padding: 10px 15px;
     text-decoration: none;
     background: #191970;
-    /*ボタン色*/
     color: #ffffff;
     border-bottom: solid 3px #627295;
     border-radius: 3px;
@@ -63,7 +62,6 @@ header {
     padding: 10px 15px;
     text-decoration: none;
     background: #191970;
-    /*ボタン色*/
     color: #ffffff;
     border-bottom: solid 3px #627295;
     border-radius: 3px;
@@ -93,9 +91,9 @@ header {
     display: block;
     position: fixed;
     z-index: 2;
-    transform: translateY(-100%);
+    transform: translateY(-180%);
     transition: .5s ease-in-out;
-    height: 100vh;
+    height: 55vh;
 
 }
 
@@ -129,14 +127,14 @@ header {
 }
 
 .modal-inner {
-    /* ② モーダル背景を画面幅いっぱいに設定し、位置を固定する。 */
+
     overflow-y: scroll;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
     height: 100%;
-    background-color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.3);
     color: #666666;
     position: fixed;
     top: 0;
@@ -144,23 +142,26 @@ header {
     z-index: 2;
 }
 
-.inner-content {
-    /* ③ モーダル内の要素全体の子要素を中央揃えにする。 */
+.modal-content {
+
     text-align: center;
     margin: 0;
     padding: 0;
-    max-width: 1024px;
+    width: 700px;
+    height: 200px;
+    background-color: #fff;
+
 }
 
-.modal-inner img {
-    /* ④ モーダル画像の幅は親要素（.modal-inner）の100%に設定。 */
-    width: 10%;
+.send-button img {
+
+    width: 30px;
     margin: 0 auto;
     margin-bottom: 10px;
 }
 
 .inner-title {
-    /* ⑤ タイトルは上下方向の他要素との間隔を調整。 */
+
     margin-top: 40px;
     margin-bottom: 32px;
     font-size: 2.8rem;
@@ -168,7 +169,6 @@ header {
 }
 
 .inner-text {
-    /* ⑥紹介文の文字サイズの設定・表示領域は70%で設定し、他要素との間隔調整。 */
     font-size: 1.6rem;
     width: 70%;
     text-align: center;
@@ -177,7 +177,6 @@ header {
 }
 
 .modalClose {
-    /* ⑦ カーソル設定をします。（.send-button）というお問い合わせボタンで使用したクラスを反映しているので、その他のスタイルは自動的に反映される。 */
     cursor: pointer;
 }
 
@@ -188,7 +187,6 @@ header {
 }
 
 /* top */
-
 h1 {
     width: 10px;
     height: 10px;
@@ -196,8 +194,6 @@ h1 {
     padding: 5px 5px 5px 5px;
 
 }
-
-
 
 .icon-menu {
     margin: 0 0 0 1000px;
@@ -233,7 +229,6 @@ h1 {
     cursor: pointer;
 }
 
-/*  */
 .tweet-show {
     height: auto;
     width: 100%;
@@ -270,13 +265,11 @@ h1 {
 }
 
 /* model */
-
 .send-button {
     margin: 10px 10px 10px 300px;
 }
 
 /* follow-list & follower-list */
-
 .follows-container p {
     margin: 15px 15px 15px 15px;
     font-size: 25px;
@@ -291,7 +284,6 @@ h1 {
 }
 
 /* search */
-
 .search-box {
     width: auto;
     height: 80px;
@@ -324,8 +316,6 @@ h1 {
     margin: 0 0 0 200px;
 }
 
-
-
 .btn-follows1 {
     background-color: #8b0000;
     color: #ffffff;
@@ -336,7 +326,6 @@ h1 {
     outline: none;
     cursor: pointer;
 }
-
 
 .btn-follows2 {
     background-color: #6495ed;
@@ -350,7 +339,6 @@ h1 {
 }
 
 /* anotherprofile */
-
 .anotherprofile {
     display: block;
     height: auto;
@@ -375,7 +363,6 @@ h1 {
 }
 
 /* profile */
-
 .profile-icon {
     margin: 30px 30px 10px 150px;
 

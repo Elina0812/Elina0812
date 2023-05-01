@@ -13,7 +13,7 @@ $(function () {
   });
 });
 
-$(function () { //①
+$(function () {
   $('.modalopen').each(function () {
     $(this).on('click', function () {
       var target = $(this).data('target');
@@ -23,8 +23,10 @@ $(function () { //①
       return false;
     });
   });
-  $('.modalClose').on('click', function () {
-    $('.js-modal').fadeOut();
-    return false;
+  $('.modal-inner').on('click', function (e) {
+    if (!$(e.target).closest('.modal-content').length) {
+      $('.js-modal').fadeOut();
+      return false;
+    }
   });
 });

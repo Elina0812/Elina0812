@@ -50,6 +50,5 @@ Route::get('/logout', 'Auth\LoginController@logout');
 
 Route::post('post/index', 'PostsController@create');
 
-Route::get('post/{id}/index', 'PostsController@updateForm');
-
+Route::post('post/update', 'PostsController@update');
 Route::delete('post/{id}/delete', 'PostsController@destroy');
