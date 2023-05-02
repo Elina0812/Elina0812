@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Auth;
 use DB;
+use Illuminate\Validation\Rule;
 
 class UsersController extends Controller
 {
@@ -32,9 +33,9 @@ class UsersController extends Controller
         $request->validate(
             [
                 'username' => 'required|string|min:4|max:12',
-                'mail' => 'required|string|email|min:4|max:255|unique:users',
-                'password' => 'required|string|min:4|max:12'
-
+                'mail' => 'required|string|email|min:4|max:255',
+                'password' => 'required|string|min:4|max:12',
+                Rule::unique('users')->ignore($request->id, 'id'),
             ],
             [
                 'username.required' => '名前は必須項目です',
