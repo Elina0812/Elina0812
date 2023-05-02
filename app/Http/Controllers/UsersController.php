@@ -34,6 +34,7 @@ class UsersController extends Controller
                 'username' => 'required|string|min:4|max:12',
                 'mail' => 'required|string|email|min:4|max:255|unique:users',
                 'password' => 'required|string|min:4|max:12'
+
             ],
             [
                 'username.required' => '名前は必須項目です',
@@ -43,7 +44,6 @@ class UsersController extends Controller
                 'mail.email' => 'Eメールを入力してください',
                 'mail.min' => '４文字以上で入力してください',
                 'mail.max' => '225文字以内で入力してください',
-                'mail.unique' => '登録済みのメールアドレスは使用出来ません',
                 'inputPassword.required' => 'パスワードを入力してください',
                 'inputPassword.min' => '４文字以上で入力してください',
                 'inputPassword.max' => '１２文字以内で入力してください',
@@ -105,8 +105,6 @@ class UsersController extends Controller
         return view('users.anotherprofile', compact('auth', 'follow_count', 'follower_count', 'posts', 'user', 'follow_list'));
     }
 
-
-
     public function search(Request $request)
     {
         $auth = Auth::user();
@@ -122,7 +120,6 @@ class UsersController extends Controller
             ->get();
 
         $keyword = $request->search;
-        // dd($follow_list);
 
         if (request('search')) {
 

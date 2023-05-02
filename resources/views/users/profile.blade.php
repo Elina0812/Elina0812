@@ -4,6 +4,7 @@
 <table class='profile table'>
   <form method="post" action="/profile/update" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="user_id" value="{{ $auth->id }}">
     <div class='profile-icon'>
       <img class='icon' src="storage/images/{{ $auth->images }}">
     </div>

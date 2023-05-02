@@ -37,11 +37,6 @@ header {
     margin: 10px;
 }
 
-.follower-number a {
-    margin: 0 0 0 -50px;
-    color: #666666;
-}
-
 #confirm {
     margin: 10px 10px 10px 10px;
     border-bottom: solid #666666;
