@@ -28,7 +28,7 @@
         <input class="form-control" id="inputPassword" placeholder="{{ $users->password }}" type="passsword" value="●●●●●●" readonly>
       </div>
       <div class='profile-NewPassword'>
-        <label for="NewPassword">New Password</label>
+        <label for="inputPassword">New Password</label>
         <input class="form-control" id="inputPassword" name="inputPassword" type="password">
         @if($errors->has('inputPassword'))
         {{ $errors->first('inputPassword') }}

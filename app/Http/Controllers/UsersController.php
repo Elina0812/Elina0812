@@ -35,6 +35,7 @@ class UsersController extends Controller
                 'username' => 'required|string|min:4|max:12',
                 'mail' => 'required|string|email|min:4|max:255',
                 'password' => 'required|string|min:4|max:12',
+                'inputPassword' => 'required|string|min:4|max:12',
                 Rule::unique('users')->ignore($request->id, 'id'),
             ],
             [
@@ -55,9 +56,9 @@ class UsersController extends Controller
         $bio = $request->inputBio;
 
         if (request('inputPassword')) {
-            $newpassword = bcrypt($request->inputPassword);
+            $inputPassword = bcrypt($request->inputPassword);
         } else {
-            $newpassword = DB::table('users')
+            $inputPassword = DB::table('users')
                 ->where('id', Auth::id())
                 ->value('password');
         }
@@ -75,7 +76,7 @@ class UsersController extends Controller
             ->update([
                 'username' => $username,
                 'mail' => $mail,
-                'password' => $newpassword,
+                'password' => $inputPassword,
                 'bio' => $bio,
                 'images' => $imagename,
             ]);
