@@ -35,8 +35,8 @@ class UsersController extends Controller
             [
                 'username' => ['required', 'string', 'min:4', 'max:12'],
                 'mail' => ['required', 'email', 'min:4', 'max:50', Rule::unique('users', 'mail')->ignore($auth_mail, 'mail')],
-                'password' => ['string', 'min:4', 'max:12'],
-                'inputPassword' => ['string', 'min:4', 'max:12'],
+                'password' => ['required', 'string', 'min:4', 'max:12'],
+                'inputPassword' => ['max:12'],
             ],
             [
                 'username.required' => '名前は必須項目です',
