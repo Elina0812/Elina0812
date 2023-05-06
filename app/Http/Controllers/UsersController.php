@@ -30,13 +30,13 @@ class UsersController extends Controller
 
     public function update(Request $request)
     {
+        $auth_mail = Auth::user()->mail;
         $request->validate(
             [
-                'username' => 'required|string|min:4|max:12',
-                'mail' => 'required|string|email|min:4|max:255',
-                'password' => 'required|string|min:4|max:12',
-                'inputPassword' => 'required|string|min:4|max:12',
-                Rule::unique('users')->ignore($request->id, 'id'),
+                'username' => ['required', 'string', 'min:4', 'max:12'],
+                'mail' => ['required', 'email', 'min:4', 'max:50', Rule::unique('users', 'mail')->ignore($auth_mail, 'mail')],
+                'password' => ['string', 'min:4', 'max:12'],
+                'inputPassword' => ['string', 'min:4', 'max:12'],
             ],
             [
                 'username.required' => '名前は必須項目です',
@@ -46,7 +46,6 @@ class UsersController extends Controller
                 'mail.email' => 'Eメールを入力してください',
                 'mail.min' => '４文字以上で入力してください',
                 'mail.max' => '225文字以内で入力してください',
-                'inputPassword.required' => 'パスワードを入力してください',
                 'inputPassword.min' => '４文字以上で入力してください',
                 'inputPassword.max' => '１２文字以内で入力してください',
             ]

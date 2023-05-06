@@ -44,8 +44,6 @@ class PostsController extends Controller
         return redirect('/top');
     }
 
-
-
     public function update(Request $request)
     {
         $id = $request->input('id');
